@@ -69,11 +69,11 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- What is the main advantage of automating configuration with Ansible?
-The main advantage of automating configuration with Ansible is that you can update all the servers by running the playbook that contains all the commands that use to set up and update the server.
+_What is the main advantage of automating configuration with Ansible?_
+- The main advantage of automating configuration with Ansible is that you can update all the servers by running the playbook that contains all the commands that use to set up and update the server.
 
 The playbook implements the following tasks:
-- In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
+_In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Create a new VM with private and public IP address
 - Edit the Host file by adding an elk group after the webserver group to specify the playbook which group to run them on. Then add the ELK-sever IP address with that group we just create.
 - Check your connection by ssh to your new ELK-server from your Jump Box. You can also check if your ELK playbook is installed successfully. 
@@ -109,7 +109,7 @@ _SSH into the control node and follow the steps below:_
 - Run the playbook, and navigate to the ELK-VM server to check that the installation worked as expected by using docker ps command. 
 
 _Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
+_Which file is the playbook? Where do you copy it?_
 - The filebeat-playbook.yml is the playbook file and it’s located at /etc/ansible/roles.
 
 _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
