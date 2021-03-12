@@ -116,17 +116,17 @@ The filebeat-playbook.yml is the playbook file and it’s located at /etc/ansibl
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
 First, we update the Host file by adding an ELK group after the webserver group so the playbook can understand which server needs an update. Then, we add the ELK remote_user in the ansible-config.yml file. The last file that needs to be updated is the filebeat-config.yml file by adding the ELK IP address in the Elasticsearch and Kabina sections. 
 - _Which URL do you navigate to in order to check that the ELK server is running?
-[public ip]:5601/app/kibana
+- [public ip]:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
-ssh RedAdmin@10.0.0.5 > connect to Jump Box
-sudo docker container list -a > list all the container
-sudo docker start affectionate_shamir > start the container
-sudo docker attach affectionate_shamir > attach the container
-cd /etc/ansible > go to the anisble directory
-ansible-playbook int-elk.yml > start the Elk container on the Elk server.
-cd /etc/ansible/roles  > go to the roles directory 
-ansible-playbook filebeat-playbook.yml > install Filebeat 
-ansible-playbook Metricbeat-playbook.yml > install Metricbeat
-Make sure you are in the right directory before running the ansible-playbook command
+- ssh RedAdmin@10.0.0.5 > connect to Jump Box
+- sudo docker container list -a > list all the container
+- sudo docker start affectionate_shamir > start the container
+- sudo docker attach affectionate_shamir > attach the container
+- cd /etc/ansible > go to the anisble directory
+- ansible-playbook int-elk.yml > start the Elk container on the Elk server.
+- cd /etc/ansible/roles  > go to the roles directory 
+- ansible-playbook filebeat-playbook.yml > install Filebeat 
+- ansible-playbook Metricbeat-playbook.yml > install Metricbeat
+- Make sure you are in the right directory before running the ansible-playbook command
 
