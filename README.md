@@ -16,7 +16,6 @@ This document contains the following details:
   - Machines Being Monitored
 - How to Use the Ansible Build
 
-
 ### Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
@@ -24,13 +23,13 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 Load balancing ensures that the application will be highly **available**, in addition to restricting **access** to the network.
 
 - _What aspect of security do load balancers protect? What is the advantage of a jump box?_
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the **logs** and system **traffic**.
+- Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the **logs** and system **traffic**.
 
 - _What does Filebeat watch for?_
-Filebeat is created to watch and collect any information like logs file, locations, and events that had been changed in the system and when it changes. 
+- Filebeat is created to watch and collect any information like logs file, locations, and events that had been changed in the system and when it changes. 
 
 - _What does Metricbeat record?_
-Metricbeat record and correct static and matric from your server then ship them into output for Elasticserch or Logstash.
+- Metricbeat record and correct static and matric from your server then ship them into output for Elasticserch or Logstash.
 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
@@ -88,35 +87,35 @@ The following screenshot displays the result of running `docker ps` after succes
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - _List the IP addresses of the machines you are monitoring_
-Web-1 (10.0.0.6)
-Web-2 (10.0.0.7)
-Web-3 (10.0.0.8)
+- Web-1 (10.0.0.6)
+- Web-2 (10.0.0.7)
+- Web-3 (10.0.0.8)
 
 We have installed the following Beats on these machines:
-- Specify which Beats you successfully installed
-Filebeat and Metricbeat
+- _Specify which Beats you successfully installed_
+- Filebeat and Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc.
-Filebeat - monitors log files or locations you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
-Metricbeat - collects metrics from the operating system and from services running on the server. Metricbeat then takes the metrics and statistics that it collects and ships them to the output that you specify.
+- _In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat - monitors log files or locations you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+- Metricbeat - collects metrics from the operating system and from services running on the server. Metricbeat then takes the metrics and statistics that it collects and ships them to the output that you specify.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
-SSH into the control node and follow the steps below:
+_SSH into the control node and follow the steps below:_
 - Copy the filebeat-playbook.yml file to /etc/ansible/roles/ directory also a filebeat-config.yml file to etc/ansible/ directory.
 - Update the filebeat-config.yml file to include the ELK IP address in the Elasticserch and Kibana section. 
 - Run the playbook, and navigate to the ELK-VM server to check that the installation worked as expected by using docker ps command. 
-- 
+
 _Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
-The filebeat-playbook.yml is the playbook file and it’s located at /etc/ansible/roles.
+- The filebeat-playbook.yml is the playbook file and it’s located at /etc/ansible/roles.
 
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-First, we update the Host file by adding an ELK group after the webserver group so the playbook can understand which server needs an update. Then, we add the ELK remote_user in the ansible-config.yml file. The last file that needs to be updated is the filebeat-config.yml file by adding the ELK IP address in the Elasticsearch and Kabina sections. 
+- First, we update the Host file by adding an ELK group after the webserver group so the playbook can understand which server needs an update. Then, we add the ELK remote_user in the ansible-config.yml file. The last file that needs to be updated is the filebeat-config.yml file by adding the ELK IP address in the Elasticsearch and Kabina sections. 
 - _Which URL do you navigate to in order to check that the ELK server is running?
-- [public ip]:5601/app/kibana
+- public ip:5601/app/kibana
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 - ssh RedAdmin@10.0.0.5 > connect to Jump Box
@@ -129,4 +128,3 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 - ansible-playbook filebeat-playbook.yml > install Filebeat 
 - ansible-playbook Metricbeat-playbook.yml > install Metricbeat
 - Make sure you are in the right directory before running the ansible-playbook command
-
