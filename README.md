@@ -82,7 +82,7 @@ _In 3-5 bullets, explain the steps of the ELK installation play. E.g., install D
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-(Project_1/Images/docker_ps_output.png)
+![myimages-alt-tag](https://github.com/yada-m138/Project_1/blob/main/Images/docker_ps_output.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
